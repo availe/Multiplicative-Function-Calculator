@@ -97,18 +97,18 @@ int main()
 {
     const int LOWER_BOUND = 1;
     const int UPPER_BOUND = 10;
-    const int VECTOR_SIZE = 5;
+    const int NUM_OF_COLS = 5;
     const std::set<int> PRIMES = generate_primes(UPPER_BOUND);
     const std::vector<std::string> HEADER_LIST = {"n", "d(n)", "σ(n)", "φ(n)", "τ(n)"};
 
     std::vector<int> row_data;
-    row_data.reserve(VECTOR_SIZE);
+    row_data.reserve(NUM_OF_COLS);
 
     if constexpr (LOWER_BOUND < 1) {
         throw std::invalid_argument("Error: Lower bound must be an integer equal or greater than 1.");
     }
 
-    generate_header(HEADER_LIST, VECTOR_SIZE);
+    generate_header(HEADER_LIST, NUM_OF_COLS);
     for (int i = LOWER_BOUND; i <= UPPER_BOUND; i++) {
         row_data.emplace_back(i);
         // generate_row(row_data, VECTOR_SIZE);
