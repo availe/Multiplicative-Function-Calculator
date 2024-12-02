@@ -40,7 +40,7 @@ std::set<int> generate_primes(const int UPPER_BOUND) {
     std::vector<int> integer_list;
     integer_list.resize(UPPER_BOUND);
     // list every number from 1 to upperbound
-    std::iota(integer_list.begin(), integer_list.end(), 1);
+    std::iota(integer_list.begin(), integer_list.end(), 2);
 
     std::set<int> non_primes;
     for (const int integer : integer_list) {
