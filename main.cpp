@@ -3,6 +3,8 @@
 #include <vector>
 #include <stdexcept>
 #include <string>
+#include <numeric>
+#include <set>
 #include <utility>
 
 // table formatting functions
@@ -30,10 +32,37 @@ void generate_row(const std::vector<int>& row_data, const int VECTOR_SIZE) {
     std::cout << "|\n";
 }
 
-// std::vector<std::pair<int, int>> prime_factorization(const int n) {
+std::vector<int> generate_primes(const int UPPER_BOUND) {
+    if (UPPER_BOUND == 1) return {};
 
-// }
+    std::vector<int> integer_list;
+    integer_list.resize(UPPER_BOUND);
+    // list every number from 1 to upperbound
+    std::iota(integer_list.begin(), integer_list.end(), 1);
 
+    std::set<int> non_primes;
+    for (const int integer : integer_list) {
+        for (int multiple = 1; multiple <= UPPER_BOUND; multiple++) {
+            if (integer % multiple == 0) {
+                non_primes.insert(integer);
+            }
+        }
+    }
+
+    std::vector<int> primes;
+    for (int num : integer_list) {
+        if (!non_primes.contains(num)) {
+            primes.push_back(num);
+        }
+    }
+
+    return primes;
+}
+
+std::vector<std::pair<int, int>> prime_factorization(const int n) {
+    std::vector<int> primes = generate_primes(n);
+    std::vector<std::pair<int, int>> result;
+}
 
 int main()
 {
@@ -45,7 +74,7 @@ int main()
     std::vector<int> row_data;
     row_data.reserve(VECTOR_SIZE);
 
-    if (LOWER_BOUND < 1) {
+    if constexpr (LOWER_BOUND < 1) {
         throw std::invalid_argument("Error: Lower bound must be an integer equal or greater than 1.");
     }
 
