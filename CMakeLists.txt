@@ -7,4 +7,6 @@ add_executable(Multiplicative_Function_Calculator main.cpp
         formatting.cpp
         formatting.h
         primes.cpp
-        primes.h)
+        primes.h
+        multiplicative.cpp
+        multiplicative.h)
