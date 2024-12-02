@@ -32,6 +32,8 @@ void generate_row(const std::vector<int>& row_data, const int VECTOR_SIZE) {
     std::cout << "|\n";
 }
 
+// prime number functions
+
 std::vector<int> generate_primes(const int UPPER_BOUND) {
     if (UPPER_BOUND == 1) return {};
 
@@ -42,9 +44,15 @@ std::vector<int> generate_primes(const int UPPER_BOUND) {
 
     std::set<int> non_primes;
     for (const int integer : integer_list) {
-        for (int multiple = 1; multiple <= UPPER_BOUND; multiple++) {
-            if (integer % multiple == 0) {
+        if (integer <= 1) {
+            non_primes.insert(integer);
+            continue;
+        }
+
+        for (int divisor = 2; divisor < integer; divisor++) {
+            if (integer % divisor == 0) {
                 non_primes.insert(integer);
+                break;
             }
         }
     }
@@ -59,9 +67,15 @@ std::vector<int> generate_primes(const int UPPER_BOUND) {
     return primes;
 }
 
-std::vector<std::pair<int, int>> prime_factorization(const int n) {
-    std::vector<int> primes = generate_primes(n);
+std::vector<std::pair<int, int>> prime_factorization(const std::vector<int>& PRIMES, const int n) {
+    if (n == 1) return {};
+
     std::vector<std::pair<int, int>> result;
+
+    for (const int prime : PRIMES) {
+        std::cout << prime << " ";
+    }
+    return result;
 }
 
 int main()
@@ -69,6 +83,7 @@ int main()
     const int LOWER_BOUND = 1;
     const int UPPER_BOUND = 10;
     const int VECTOR_SIZE = 5;
+    const std::vector<int> PRIMES = generate_primes(UPPER_BOUND);
     const std::vector<std::string> HEADER_LIST = {"n", "d(n)", "σ(n)", "φ(n)", "τ(n)"};
 
     std::vector<int> row_data;
@@ -82,6 +97,7 @@ int main()
     for (int i = LOWER_BOUND; i <= UPPER_BOUND; i++) {
         row_data.emplace_back(i);
         // generate_row(row_data, VECTOR_SIZE);
+        prime_factorization(PRIMES, 5);
     }
 
     return 0;
