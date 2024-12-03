@@ -22,3 +22,30 @@ int Multiplicative_Functions::sum_of_divisors(int n) {
     return sum_of_divisors;
 }
 
+/** eulers_totient *= 1 - (1 / prime);
+ *
+ * We must avoid using floating point numbers in C++ so we'll rephrase it
+ *
+ * 1prime - 1 = euler's totient / prime
+ * (prime - 1) / prime = euler's totient
+ **/
+
+int Multiplicative_Functions::eulers_totient(int n) {
+    int eulers_totient = n;
+    for (const auto& [prime, exponent] : prime_factors) {
+        eulers_totient *= (prime - 1) / prime;
+    }
+
+    return eulers_totient;
+}
+
+int Multiplicative_Functions::tau_function(int n) {
+    int tau_result = 1;
+
+    for (const auto& [prime, exponent] : prime_factors) {
+
+    }
+    return tau_result;
+}
+
+
