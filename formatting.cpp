@@ -37,3 +37,24 @@ void generate_row(const std::vector<int>& row_data, const size_t VECTOR_SIZE, st
     }
     output << "\n";
 }
+
+void generate_header_markdown(const std::vector<std::string>& HEADER_LIST, std::ostream& output) {
+    output << "|";
+    for (const std::string& header : HEADER_LIST) {
+        output << " " << header << " |";
+    }
+    output << "\n|";
+    for (size_t i = 0; i < HEADER_LIST.size(); ++i) {
+        output << "---|";
+    }
+    output << "\n";
+}
+
+void generate_row_markdown(const std::vector<int>& row_data, const size_t VECTOR_SIZE, std::ostream& output) {
+    check_length(row_data.size(), VECTOR_SIZE);
+    output << "|";
+    for (const int number : row_data) {
+        output << " " << number << " |";
+    }
+    output << "\n";
+}
