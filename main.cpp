@@ -36,7 +36,8 @@ int main()
         row_data.emplace_back(m.eulers_totient(i));
         row_data.emplace_back(m.tau_function(i));
         generate_row(row_data, HEADER_LIST.size());
-        }
+        row_data.clear();
+    }
 
     return 0;
 }
