@@ -24,7 +24,7 @@ int main()
 
 
     generate_header(HEADER_LIST);
-    for (int i = LOWER_BOUND; i <= UPPER_BOUND; i++) {
+    for (int i = LOWER_BOUND; i <= UPPER_BOUND; ++i) {
         const std::vector<std::pair<int, int>> prime_factors = prime_factorization(PRIMES, i);
         m.set_prime_factors(prime_factors);
 

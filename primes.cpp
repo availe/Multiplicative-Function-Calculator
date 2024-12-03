@@ -16,7 +16,7 @@ std::set<int> generate_primes(const int UPPER_BOUND) {
             continue;
         }
 
-        for (int divisor = 2; divisor < integer; divisor++) {
+        for (int divisor = 2; divisor < integer; ++divisor) {
             if (integer % divisor == 0) {
                 non_primes.insert(integer);
                 break;
@@ -48,7 +48,7 @@ std::vector<std::pair<int, int>> prime_factorization(const std::set<int>& PRIMES
         int counter = 0;
         while (n % prime == 0) {
             n /= prime;
-            counter++;
+            ++counter;
         }
 
         if (counter > 0) {
