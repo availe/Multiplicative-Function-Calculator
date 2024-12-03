@@ -1,19 +1,15 @@
-#include <iostream>
 #include <vector>
 #include <stdexcept>
 #include <string>
-#include <numeric>
 #include <set>
-#include <utility>
-
 #include "formatting.h"
 #include "multiplicative.h"
 #include "primes.h"
 
 int main()
 {
-    const int LOWER_BOUND = 1;
-    const int UPPER_BOUND = 10;
+    constexpr int LOWER_BOUND = 1;
+    constexpr int UPPER_BOUND = 10;
     const std::set<int> PRIMES = generate_primes(UPPER_BOUND);
     const std::vector<std::string> HEADER_LIST = {"n", "d(n)", "σ(n)", "φ(n)", "τ(n)"};
 
@@ -23,7 +19,7 @@ int main()
     if constexpr (LOWER_BOUND < 1) {
         throw std::invalid_argument("Error: Lower bound must be an integer equal or greater than 1.");
     }
-    std::vector<std::pair<int, int>> prime_factors = prime_factorization(PRIMES, 88);
+    const std::vector<std::pair<int, int>> prime_factors = prime_factorization(PRIMES, 88);
 
     Multiplicative_Functions m;
     m.set_prime_factors(prime_factors);
