@@ -1,3 +1,13 @@
+# Multiplicative Functions
+
+This table describes several key number-theoretic functions:
+
+- **n**: An integer.
+- **d(n)**: The number of divisors of *n*.
+- **σ(n)**: The sum of the divisors of *n*.
+- **φ(n)**: Euler's totient function, which counts the integers up to *n* that are coprime to *n*.
+- **τ(n)**: Defined as *(-1)^k*, where *k* is the number of distinct prime divisors of *n*.
+
 | n | d(n) | σ(n) | φ(n) | τ(n) |
 |---|---|---|---|---|
 | 1 | 1 | 1 | 1 | 1 |
